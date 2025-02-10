@@ -60,19 +60,19 @@ export default defineConfig({
                 formData.append('debug', 0)
                 formData.append('version', 'V1.4.7')
 
-                // fetch(url, {
-                //   method: 'POST',
-                //   body: formData
-                // }).then(response => response.json())
-                //     .then(data => {
-                //         if (+data.code === 1) {
-                //             console.log('***success***',filePath);
-                //             fs.writeFileSync(filePath, data.output.data)
-                //         } else {
-                //             console.log('***fail***',data);
-                //             throw new Error('jsvmp fetch error')
-                //         }
-                //     })
+                fetch(url, {
+                  method: 'POST',
+                  body: formData
+                }).then(response => response.json())
+                    .then(data => {
+                        if (+data.code === 1) {
+                            console.log('***success***',filePath);
+                            fs.writeFileSync(filePath, data.output.data)
+                        } else {
+                            console.log('***fail***',data);
+                            throw new Error('jsvmp fetch error')
+                        }
+                    })
               }
             })
         },
